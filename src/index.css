@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans bg-white text-gray-900 transition-colors duration-300;
+    overflow-x: hidden;
+  }
+  .dark body {
+    @apply bg-gray-950 text-gray-100;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-violet-600/30 dark:bg-violet-400/20 rounded-full border-2 border-transparent bg-clip-content;
+    transition: background-color 0.3s;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-violet-600/50 dark:bg-violet-400/40;
+  }
+}
+
+@layer components {
+  .section-heading {
+    @apply text-4xl md:text-5xl lg:text-6xl font-black text-center mb-4 tracking-tight;
+  }
+  .section-subheading {
+    @apply text-gray-500 dark:text-gray-400 text-center mb-16 max-w-2xl mx-auto text-lg;
+  }
+  .badge {
+    @apply px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full bg-violet-100 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 border border-violet-200/50 dark:border-violet-700/50;
+  }
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-8 py-4 rounded-full bg-violet-600 hover:bg-violet-700 text-white font-bold shadow-xl shadow-violet-500/20 transition-all duration-300 hover:shadow-violet-500/40 hover:-translate-y-1 active:scale-95;
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-8 py-4 rounded-full border-2 border-violet-600 text-violet-600 dark:text-violet-400 dark:border-violet-400 font-bold hover:bg-violet-600 hover:text-white dark:hover:bg-violet-600 dark:hover:text-white transition-all duration-300 hover:-translate-y-1 active:scale-95;
+  }
+  .card {
+    @apply bg-white/70 dark:bg-gray-900/50 backdrop-blur-xl rounded-3xl shadow-sm dark:shadow-none border border-gray-200/50 dark:border-gray-800/50 transition-all duration-500 hover:border-violet-500/50 dark:hover:border-violet-400/50;
+  }
+  .glass {
+    @apply bg-white/60 dark:bg-gray-950/60 backdrop-blur-2xl border-b border-gray-200/30 dark:border-gray-800/30;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-violet-600 to-indigo-500 bg-clip-text text-transparent;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
